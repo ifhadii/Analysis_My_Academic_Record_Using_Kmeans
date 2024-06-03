@@ -1,0 +1,27 @@
+<!doctype html>
+<title>Upload new File</title>
+<h1>Upload new File</h1>
+<form method=post enctype=multipart/form-data>
+  <input type=file name=file>
+  <input type=submit value=Upload>
+</form>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+{% if data %}
+<h2>Data from CSV:</h2>
+{{ data }}
+<h2>Marks Data:</h2>
+<table border="1">
+  <tr>
+    <th>Grade</th>
+    <th>Count</th>
+  </tr>
+  {% for grade, count in marks_data.items() %}
+  <tr>
+    <td>{{ grade }}</td>
+    <td>{{ count }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
